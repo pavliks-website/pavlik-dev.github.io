@@ -1,0 +1,23 @@
+<div class="section" id="header">
+    <table class="header">
+        <tr>
+            <td class="header-left"></td>
+            <td class="header-center">
+                <span>{{ section.title }}</span>
+            </td>
+            <td class="header-right"></td>
+        </tr>
+    </table>
+    <div class="content">
+        <p style="
+                    font-size: 2em;
+                    font-weight: bold;
+                    text-align: center;
+                ">
+            <img src="{{ section.icon }}" width="64" alt="{{ section.title }}" /><br />
+            {{ section.title }}
+        </p>
+        {{ section.content | markdownify }}
+    </div>
+</div>
+<br />

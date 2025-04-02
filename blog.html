@@ -1,0 +1,24 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+<style>
+    .post {
+        padding-top: 10px;
+    }
+</style>
+
+<h2 style="text-align: center;">Blog</h2>
+
+<div>
+{% for post in site.posts %}
+    {% assign date = post.date | date: "%s" | plus: 0 %}
+    {% if date < 1704067200 %}
+        {% continue %}
+    {% endif %}
+    {% include post.html post=post %}
+{% endfor %}
+</div>
+<br/>
+<p><a href="old/">Older posts...</a></p>

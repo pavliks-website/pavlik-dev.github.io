@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<style>
+    img {
+        max-width: 100%;
+    }
+</style>
+<h1>{{ page.title }}</h1>
+<date>{{ page.date | date: "%Y-%m-%d %H:%M" }}</date>
+{% assign date = page.date | date: "%s" | plus: 0 %}
+<p>
+{% if date < 1704067200 %}
+    <b>Warning: this post is more than a year old! It can (and most likely will) contain
+        misinformation, so double check the facts!
+    </b>
+{% endif %}
+</p>
+<p></p>
+{{ page.content | markdownify }}

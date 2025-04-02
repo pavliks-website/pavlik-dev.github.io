@@ -1,0 +1,59 @@
+:root {
+    --green: lightgreen;
+    --yellow: yellow;
+    --red: red;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.content {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+    width: auto !important;
+    width: 600px;
+}
+
+main {
+    text-align: left !important;
+}
+
+a {
+    color: white;
+    min-height: 25px;
+    min-width: 25px;
+    display: inline-block;
+}
+
+.page-holder {
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.page-holder .title {
+    text-align: center;
+}
+
+.page-holder td {
+    vertical-align: top;
+    padding: 5px;
+}
+
+.navbar a {
+    padding: 0px 10px;
+}
+
+date {
+    font-style: italic;
+}
+
+h1 {
+    text-align: center;
+}

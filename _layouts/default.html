@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/assets/00s.css">
+    {% if page.icon == "default" %}
+    <link rel="icon" href="/favicon.ico">
+    {% else %}
+    <link rel="icon" href="{{ page.icon }}">
+    {% endif %}
+</head>
+
+<body>
+    <div class="center">
+        <header>
+            <nav style="width:100%">
+                <img id="header-logo" style="margin-top: 5px; width:69px; height:46px"
+                    src="http://static.pavliktt.pp.ua/header-big.gif" width="104" height="69" alt="pavlik_tt">
+                <br />
+                <nav>
+                    <p class="navbar">
+                        <a href="/">Home</a>
+                        <a href="/blog/">Blog</a>&nbsp;
+                        <a href="/mincpu/">minCPU</a>
+                    </p>
+                </nav>
+            </nav>
+            <hr>
+        </header>
+        <main style="margin: 5px;" id="main-content">
+            {{ content }}
+        </main>
+        <hr/>
+        <footer>
+            pavlik_tt @ 2025<br />
+            Content is available under the <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a> unless otherwise noted.
+        </footer>
+    </div>
+</body>
+
+</html>

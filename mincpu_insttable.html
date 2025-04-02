@@ -1,0 +1,607 @@
+---
+permalink: /mincpu/insttable/
+title: minCPU Instruction Set
+---
+
+<style type="text/css">
+    body {
+        margin: auto;
+        max-width: 650px;
+        width: 100%;
+        font-family: system-ui;
+        padding-top: 10px;
+    }
+
+    main {
+        text-align: left;
+    }
+
+    table {
+        margin: 0;
+        border-collapse: collapse;
+        font-family: monospace;
+    }
+
+    th {
+        text-align: center;
+        border: 1px solid darkgray;
+        padding: 5px;
+    }
+
+    td {
+        border: 1px solid darkgray;
+        margin: 0;
+        padding: 5px;
+    }
+</style>
+<h2>minCPU Instruction Set</h2>
+<p>
+    <a href="http://pyt.pp.ua/mincpu/">http://pyt.pp.ua/mincpu/</a>
+</p>
+<table style="width: 100%">
+    <thead>
+        <tr>
+            <th></th>
+            <th>x0</th>
+            <th>x1</th>
+            <th>x2</th>
+            <th>x3</th>
+            <th>x4</th>
+            <th>x5</th>
+            <th>x6</th>
+            <th>x7</th>
+            <th>x8</th>
+            <th>x9</th>
+            <th>xA</th>
+            <th>xB</th>
+            <th>xC</th>
+            <th>xD</th>
+            <th>xE</th>
+            <th>xF</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>0x</th>
+            <td></td>
+            <td><a href="#LOAD">LOAD</a></td>
+            <td><a href="#STORE">STORE</a></td>
+            <td><del>MOV</del></td>
+            <td><a href="#SWAP">SWAP</a></td>
+            <td><a href="#PTR">PTR</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>1x</th>
+            <td><a href="#PUSH">PUSH</a></td>
+            <td><a href="#POP">POP</a></td>
+            <td><a href="#SDEPTH">SDEPTH</a></td>
+            <td><a href="#SCLEAR">SCLEAR</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>2x</th>
+            <td><a href="#FUNC">FUNC</a></td>
+            <td><a href="#RETURN">RETURN</a></td>
+            <td><a href="#CALL">CALL</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>3x</th>
+            <td><a href="#IN">IN</a></td>
+            <td><a href="#OUT">OUT</a></td>
+            <td><a href="#ISCONN">ISCONN</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>4x</th>
+            <td><a href="#INC">INC</a></td>
+            <td><a href="#DEC">DEC</a></td>
+            <td><a href="#ADD">ADD</a></td>
+            <td><a href="#SUB">SUB</a></td>
+            <td><a href="#MUL">MUL</a></td>
+            <td><a href="#DIV">DIV</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>5x</th>
+            <td><a href="#SHL">SHL</a></td>
+            <td><a href="#SHR">SHR</a></td>
+            <td><a href="#NEG">NEG</a></td>
+            <td><a href="#AND">AND</a></td>
+            <td><a href="#OR">OR</a></td>
+            <td><a href="#XOR">XOR</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>6x</th>
+            <td><a href="#EQ">EQ</a></td>
+            <td><a href="#NE">NE</a></td>
+            <td><a href="#GT">GT</a></td>
+            <td><a href="#LT">LT</a></td>
+            <td><a href="#GE">GE</a></td>
+            <td><a href="#LE">LE</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>7x</th>
+            <td><a href="#JMP">JMP</a></td>
+            <td><a href="#JC">JC</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>8x</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>9x</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Ax</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Bx</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Cx</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Dx</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Ex</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Fx</th>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="#HLT">HLT</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<div id="instruction-details">
+    <h2 id="LOAD">LOAD</h2>
+    <p>
+        Loads the value from a memory address into the accumulator
+        (ACC) register.
+    </p>
+    <code> 0001 &lt;read from&gt; </code>
+
+    <h2 id="STORE">STORE</h2>
+    <p>Writes arg #2 into arg #1. (#2 can be an immediate value)</p>
+    <code> 0002 &lt;target&gt; &lt;source&gt; </code>
+
+    <h2 id="SWAP">SWAP</h2>
+    <p>Swaps the values between two memory addresses.</p>
+    <code> 0004 &lt;addr #1&gt; &lt;addr #2&gt; </code>
+
+    <h2 id="PTR">PTR</h2>
+    <p>
+        Writes a memory address to another memory address,
+        effectively creating a pointer.
+    </p>
+    <code> 0005 &lt;target&gt; &lt;point to&gt; </code>
+
+    <h2 id="PUSH">PUSH</h2>
+    <p>Pushes a value onto the main stack.</p>
+    <code> 0010 &lt;value&gt; </code>
+
+    <h2 id="POP">POP</h2>
+    <p>
+        Pops (retrieves and removes) the top value from the main
+        stack and stores it in the accumulator (ACC).
+    </p>
+    <code> 0011 </code>
+
+    <h2 id="SDEPTH">SDEPTH</h2>
+    <p>
+        Stores the current depth of the main stack in the
+        accumulator (ACC).
+    </p>
+    <code> 0012 </code>
+
+    <h2 id="SCLEAR">SCLEAR</h2>
+    <p>Clears all elements from the main stack.</p>
+    <code> 0013 </code>
+
+    <h2 id="FUNC">FUNC</h2>
+    <p>
+        A flag to indicate the start of a function. It doesn't
+        perform any operation.<br />
+        You can use <code>FUNC RETURN</code> as
+    </p>
+    <code> 0020 </code>
+
+    <h2 id="RETURN">RETURN</h2>
+    <p>
+        Returns from a function. Reads the return address from the
+        function stack and jumps to that address.
+    </p>
+    <code> 0021 </code>
+
+    <h2 id="CALL">CALL</h2>
+    <p>
+        Calls a function located at the specified memory address. It
+        pushes the current PC to the function stack before jumping.
+    </p>
+    <code> 0022 &lt;func addr&gt; </code>
+
+    <h2 id="IN">IN</h2>
+    <p>Writes a value to an output device.</p>
+    <code> 0030 &lt;port&gt; &lt;value&gt; </code>
+
+    <h2 id="OUT">OUT</h2>
+    <p>
+        Reads a value from an input device and writes it to a memory
+        address.
+    </p>
+    <code> 0031 &lt;port&gt; &lt;target addr&gt; </code>
+
+    <h2 id="ISCONN">ISCONN</h2>
+    <p>
+        Checks if port is connected and sets the BOOL register
+        accordingly.
+    </p>
+    <code> 0032 &lt;port&gt; </code>
+
+    <h2 id="INC">INC</h2>
+    <p>Increments the value at a specified memory address by 1.</p>
+    <code> 0040 &lt;addr&gt; </code>
+
+    <h2 id="DEC">DEC</h2>
+    <p>Decrements the value at a specified memory address by 1.</p>
+    <code> 0041 &lt;addr&gt; </code>
+
+    <h2 id="ADD">ADD</h2>
+    <p>
+        Writes the sum of arg #1 and arg #2 to arg #1.<br />Note
+        that arg #1 can only be an address, a pointer, or a
+        register.
+    </p>
+    <code> 0042 &lt;summand addr&gt; &lt;summand&gt; </code>
+
+    <h2 id="SUB">SUB</h2>
+    <p>
+        Writes the difference between arg #1 and arg #2 to arg
+        #1.<br />Note that arg #1 can only be an address, a pointer,
+        or a register.
+    </p>
+    <code> 0043 &lt;minuend addr&gt; &lt;subtrahend&gt; </code>
+
+    <h2 id="MUL">MUL</h2>
+    <p>
+        Writes the product of arg #1 and arg #2 to arg #1.<br />Note
+        that arg #1 can only be an address, a pointer, or a
+        register.
+    </p>
+    <code> 0044 &lt;factor addr&gt; &lt;factor&gt; </code>
+
+    <h2 id="DIV">DIV</h2>
+    <p>
+        Writes the quotient of arg #1 and arg #2 to arg #1.<br />Note
+        that arg #1 can only be an address, a pointer, or a
+        register.
+    </p>
+    <code> 0045 &lt;dividend&gt; &lt;divisor&gt; </code>
+
+    <h2 id="SHL">SHL</h2>
+    <p>
+        Shifts the bits of arg #1 to the left by arg #2. The vacated
+        bits are filled with zeros.<br />Note that arg #1 can only
+        be an address, a pointer, or a register.
+    </p>
+    <code> 0044 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="SHR">SHR</h2>
+    <p>
+        Shifts the bits of arg #1 to the right by arg #2. The
+        vacated bits are filled with zeros.<br />Note that arg #1
+        can only be an address, a pointer, or a register.
+    </p>
+    <code> 0044 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="NEG">NEG</h2>
+    <p>
+        Negates the value of arg #1.<br />Note that arg #1 can only
+        be an address, a pointer, or a register.
+    </p>
+    <code> 0044 &lt;arg #1&gt; </code>
+
+    <h2 id="AND">AND</h2>
+    <p>
+        Performs a bitwise AND operation between arg #1 and arg #2.
+        <br />Note that arg #1 can only be an address, a pointer, or
+        a register.
+    </p>
+    <code> 0045 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="OR">OR</h2>
+    <p>
+        Performs a bitwise OR operation between arg #1 and arg #2.
+        <br />Note that arg #1 can only be an address, a pointer, or
+        a register.
+    </p>
+    <code> 0046 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="XOR">XOR</h2>
+    <p>
+        Performs a bitwise exclusive OR operation between arg #1 and
+        arg #2.
+        <br />Note that arg #1 can only be an address, a pointer, or
+        a register.
+    </p>
+    <code> 0047 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="EQ">EQ</h2>
+    <p>
+        Compares two values for equality. It sets the BOOL register
+        to 1 if they are equal, and 0 if they are not.
+    </p>
+    <code> 0060 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="NE">NE</h2>
+    <p>
+        Compares two values for inequality. It sets the BOOL
+        register to 1 if they are not equal, and 0 if they are
+        equal.
+    </p>
+    <code> 0061 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="GT">GT</h2>
+    <p>
+        Compares two values to check if the first value is greater
+        than the second. It sets the BOOL register accordingly.
+    </p>
+    <code> 0062 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="LT">LT</h2>
+    <p>
+        Compares two values to check if the first value is less than
+        the second. It sets the BOOL register accordingly.
+    </p>
+    <code> 0063 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="GE">GE</h2>
+    <p>
+        Compares two values to check if the first value is greater
+        than or equal to the second. It sets the BOOL register
+        accordingly.
+    </p>
+    <code> 0064 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="LE">LE</h2>
+    <p>
+        Compares two values to check if the first value is less than
+        or equal to the second. It sets the BOOL register
+        accordingly.
+    </p>
+    <code> 0065 &lt;arg #1&gt; &lt;arg #2&gt; </code>
+
+    <h2 id="JMP">JMP</h2>
+    <p>
+        Unconditionally jumps to a specified memory address,
+        changing the program counter (PC).
+    </p>
+    <code> 0070 &lt;addr&gt; </code>
+
+    <h2 id="JC">JC</h2>
+    <p>
+        Jumps to a specified memory address if the BOOL register is
+        set to 1 (true).
+    </p>
+    <code> 0071 &lt;addr&gt; </code>
+
+    <h2 id="HLT">HLT</h2>
+    <p>Halts the CPU execution.</p>
+    <code> 00FF </code>
+    <br /><br />
+</div>
