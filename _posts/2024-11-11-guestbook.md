@@ -2,6 +2,7 @@
 layout: blog
 title:  "Harrow there, guest book! :3"
 date: 2024-11-11 17:29:00 +0300
+type: news
 ---
 
 Finally I made a guest book!\

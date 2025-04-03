@@ -15,10 +15,10 @@ body {
 
 .center {
     text-align: center;
-    max-width: 600px;
+    max-width: 525px;
     margin: auto;
     width: auto !important;
-    width: 600px;
+    width: 525px;
 }
 
 main {
@@ -46,12 +46,60 @@ a {
     padding: 5px;
 }
 
-.navbar a {
-    padding: 0px 10px;
+header {
+    height: 69px;
+    background-image: url(//static.pavliktt.pp.ua/header-big.gif);
+    background-position: 50% 0%;
+    background-size: 69px 46px;
+    background-repeat: no-repeat;
+    vertical-align: bottom;
+    position: relative;
 }
 
-date {
-    font-style: italic;
+header nav {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+}
+
+.navbar {
+    width: 100%;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.navbar a {
+    /* padding: 0px 5px; */
+    text-decoration: none;
+    font-size: 13px;
+    display: inline;
+    /* margin:0; */
+}
+
+.navbar a::before {
+    content: "[";
+    opacity: 0;
+}
+
+.navbar a::after {
+    content: "]";
+    opacity: 0;
+}
+
+.navbar a:hover {
+    background-color: darkblue;
+}
+
+.navbar a:hover::before {
+    content: "[";
+    opacity: 1;
+}
+
+.navbar a:hover::after {
+    content: "]";
+    opacity: 1;
 }
 
 h1 {

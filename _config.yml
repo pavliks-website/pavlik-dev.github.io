@@ -34,12 +34,28 @@ github_username:  pavlik-dev
 theme: null
 plugins:
   - jekyll-feed
+  - jekyll-archives
+
+#markdown: kramdown
+#kramdown:
+#  parse_block_html: true
 
 markdown: kramdown
 kramdown:
-  parse_block_html: true
+  input: GFM
+  syntax_highlighter: null
+
+jekyll-archives:
+  enabled:
+    - year
+  layout: archive
+  permalinks:
+    year: /blog/:year/
+  title: "Archives"
 
 repository: pavlik-dev.github.io
+
+permalink: /blog/:year/:month/:day/:slug/
 
 # Exclude from processing.
 # The following items will not be processed, by default.

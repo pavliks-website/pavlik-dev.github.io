@@ -2,6 +2,7 @@
 layout: blog
 title:  "Hello again! :3"
 date: 2024-11-07 23:14:00 +0300
+type: news
 ---
 
 Global update:  

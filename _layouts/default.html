@@ -11,33 +11,17 @@
     {% else %}
     <link rel="icon" href="{{ page.icon }}">
     {% endif %}
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ "/feed.xml" | relative_url }}">
 </head>
 
 <body>
     <div class="center">
-        <header>
-            <nav style="width:100%">
-                <img id="header-logo" style="margin-top: 5px; width:69px; height:46px"
-                    src="http://static.pavliktt.pp.ua/header-big.gif" width="104" height="69" alt="pavlik_tt">
-                <br />
-                <nav>
-                    <p class="navbar">
-                        <a href="/">Home</a>
-                        <a href="/blog/">Blog</a>&nbsp;
-                        <a href="/mincpu/">minCPU</a>
-                    </p>
-                </nav>
-            </nav>
-            <hr>
-        </header>
+        {% include header.html %}
         <main style="margin: 5px;" id="main-content">
             {{ content }}
         </main>
         <hr/>
-        <footer>
-            pavlik_tt @ 2025<br />
-            Content is available under the <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a> unless otherwise noted.
-        </footer>
+        {% include footer.html %}
     </div>
 </body>
 
