@@ -1,9 +1,0 @@
-<div>
-    <h3>{{ section.title }}</h3>
-    {% if section.list %}
-        {% for l in page.list %}
-            {{ l | markdownify }}
-        {% endfor %}
-    {% endif %}
-    {{ section.content | markdownify }}
-</div>
