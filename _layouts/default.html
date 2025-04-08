@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/ass/ss/web1-0.css">
+    <link rel="stylesheet" href="{{ "/res/css/web1-0.css" | relative_url }}">
     {% if page.icon == "default" %}
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
     {% else %}
     <link rel="icon" href="{{ page.icon }}">
     {% endif %}
