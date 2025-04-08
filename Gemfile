@@ -14,14 +14,14 @@ source "https://rubygems.org"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 
 # Use Jekyll by default for local development
-#gem "jekyll"
+gem "jekyll"
 
 # Only use github-pages when deploying to GitHub Pages
 #group :github_pages do
 #gem "github-pages", require: false
 #end
 
-gem "github-pages", group: :jekyll_plugins
+#gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed"
