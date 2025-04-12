@@ -1,0 +1,58 @@
+---
+layout: default
+title: URL Shortener
+permalink: /url-shortener/
+---
+<script>
+    const error_map = {
+        400: 'Invalid URL',
+        404: "Link doesn't exist",
+        409: 'Alias already exists'
+    }
+
+    async function upload() {
+        document.getElementById('error').innerHTML = ""
+        const field = document.getElementById('url');
+        const url = field.value;
+        field.value = '';
+        const resp = await fetch('//pyt.pp.ua/', {
+            "method": "POST",
+            "body": JSON.stringify({ 'url': url })
+        });
+        console.log(resp)
+        if (!resp.ok) {
+            document.getElementById('error').innerHTML = error_map[resp.status] || `HTTP ${resp.statusText}`
+            return false
+        }
+        const json = await resp.json();
+        console.log(json)
+        const result = json.key;
+        document.getElementById('short-url').innerHTML = result;
+        document.getElementById('short-url').href = result;
+        document.getElementById('result').style.display = 'block';
+        return false;
+    }
+</script>
+
+<h1>URL Shortener</h1>
+<br/>
+<noscript>
+    <i>For this to work you need JavaScript enabled.</i>
+</noscript>
+<div id="form" style="text-align: center;display: none;">
+    <form onsubmit="try{upload();}catch{}return false">
+        <input type="text" placeholder="Paste your long URL here" id="url" required />
+        &nbsp;
+        <input type="submit" value="Shorten!" /><br/>
+        <span id="error" style="color:rgb(255, 50, 50)"></span>
+    </form>
+    <div id="result" style="display: none;">
+        <br/>
+        <p>Your short URL is:</p>
+        <a id="short-url" href="..." style="font-size: larger;">...</a>
+    </div>
+    <br/>
+</div>
+<script>
+    document.getElementById('form').style.display = 'block';
+</script>
