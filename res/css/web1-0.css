@@ -9,7 +9,10 @@ body {
     color: white;
     max-width: 525px;
     margin: auto;
-    width: auto !important;
+    width: 100% !important;
+    
+    /* Make UI elements dark on newer browsers */
+    color-scheme: dark;
 }
 
 .content {
@@ -19,7 +22,7 @@ body {
 .center {
     text-align: center;
     margin: auto;
-    width: 525px;
+    width: 100%;
 }
 
 main {
