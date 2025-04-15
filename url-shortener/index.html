@@ -70,15 +70,6 @@ permalink: /url-shortener/
         500: "Server went boom!"
     };
 
-    function animation() {
-        if (resultEl.innerHTML.length < 3)
-            resultEl.innerHTML += '.'
-        else
-            resultEl.innerHTML = ''
-
-        setTimeout(animation, 1000)
-    }
-
     async function u(form) {
         const formData = new FormData(form);
         const size = formData.get('size');
@@ -101,10 +92,7 @@ permalink: /url-shortener/
         if (!resp.ok) {
             try {
                 json = await resp.json();
-            } catch (e) {
-                document.getElementById('error').innerHTML = error_map[resp.status] || `HTTP ${resp.status} ${resp.statusText}`;
-                return false;
-            }
+            } catch (e) { }
             document.getElementById('error').innerHTML = json.error || error_map[resp.status] || `HTTP ${resp.status} ${resp.statusText}`;
             return false;
         }

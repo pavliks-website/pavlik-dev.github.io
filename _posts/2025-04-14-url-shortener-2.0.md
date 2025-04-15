@@ -12,7 +12,7 @@ The source code will be available soon.
 
 ## Modes!
 Now you can make links with different lengths, from 4 to 10 characters wide.\
-For this you need to specify `mode` field in JSON payload:\
+For this you need to specify `mode` field in JSON payload:
 ```json
 {
     "url": "https://google.com/",
@@ -23,21 +23,16 @@ The available at this moment modes are:
 - `short`: 4 characters
 - `normal`: 6 characters *(default)*
 - `long`: 10 characters
-### Which one do I need?
-Well, let's say you found a file and want to send it to a friend of yours (if you have one ofc). You'll probably choose a short, 4 character long link. It
 
-If you need a short link for a friend or just to send to an another device
-of yours, you'll probably want a 4 character link. It'll be good for short
-periods of time, like a day or a week.\
-But, if you need a link for the public, maybe for a forum or a YouTube
-video, you'll probably need a longer link, because a short one could be
-overwritten by someone else. (its unlikely though, but its better to be
-safe than sorry)
+### Which one do I need?
+Well, there is no difference at all. You can use any length without fear that someone else will overwrite it. The code automatically selects only the link that is not taken.
+
+But in case every link is taken, and the service errors out, you could try a longer link. Or just try again.
 
 ## API is now a little different.
 Now to shorten a URL, you must use `/create` endpoint.\
 And you can provide a wanted mode with `mode` field.\
-And the output link got moved to `url` instead of `key`*???*
+And the output link got moved to `url` instead of `key`*???*\
 **Its still free though ;)**
 
 ## Random links
