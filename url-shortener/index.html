@@ -3,105 +3,117 @@ layout: default
 title: URL Shortener
 permalink: /url-shortener/
 ---
+<h1>URL Shortener</h1>
+<center>A link shortening service crafted with care and love by me!</center>
+<br />
+
+<noscript>
+    <i>For this to work you need JavaScript enabled.</i>
+</noscript>
+
+<div id="form" class="center" style="margin-top: 1em;">
+    <form onsubmit="try{u(event.target);}catch{}return !1">
+        <input name="url" type="url" placeholder="Paste your long URL here" id="url" required
+            style="width: 100%; max-width: 100%; padding: 4px; background-color: black; color: white; border: 1px solid white; font-family: monospace;" />
+        <br><br>
+        <input type="submit" value="Shorten!"
+            style="background-color: black; color: white; border: 1px solid white; font-family: monospace; padding: 2px 6px;" />
+        <br>
+        <p id="error" style="color: red; font-family: monospace;"></p>
+
+        <details style="margin-top: 1em; text-align: left;">
+            <summary><b>Preferences</b></summary>
+            <div style="margin-left: 1em;">
+                <b>Link size:</b><br>
+                <label><input type="radio" name="size" value="short"> Short (4 chars)</label><br>
+                <label><input type="radio" checked name="size" value="normal"> Default (6 chars)</label><br>
+                <label><input type="radio" name="size" value="long"> Long (10 chars)</label>
+            </div>
+        </details>
+
+        <div id="result" style="display: none; margin-top: 1em;">
+            <p>Your short URL is:</p>
+            <a id="short-url" href="..." style="font-size: 1.1em; font-family: monospace;">...</a>
+        </div>
+    </form>
+
+    <h2 style="margin-top: 2em;">API</h2>
+    <div style="text-align: left; font-size: 14px;">
+        <h3><code>/create</code></h3>
+        <p>
+            Create a new link. (POST)
+            <br>
+            <code>
+                { "url": "https://example.com/", "mode": "normal" }
+            </code>
+        </p>
+        <p>Available modes:</p>
+        <ul>
+            <li><code>short</code> — 4 characters</li>
+            <li><code>normal</code> — 6 characters</li>
+            <li><code>long</code> — 10 characters</li>
+        </ul>
+        <p>Response:</p>
+        <code>
+            { url: "http://pyt.pp.ua/..." }
+        </code>
+    </div>
+</div>
+
 <script>
-    async function upload(form) {
+    document.getElementById('form').style.display = 'block';
+    const resultEl = document.getElementById('');
+
+    const error_map = {
+        400: "Bad request",
+        404: "Endpoint not found",
+        500: "Server went boom!"
+    };
+
+    function animation() {
+        if (resultEl.innerHTML.length < 3)
+            resultEl.innerHTML += '.'
+        else
+            resultEl.innerHTML = ''
+
+        setTimeout(animation, 1000)
+    }
+
+    async function u(form) {
         const formData = new FormData(form);
-        const size = formData.get('size')
-        const url = formData.get('url')
-        document.getElementById('error').innerHTML = ""
+        const size = formData.get('size');
+        const url = formData.get('url');
+        document.getElementById('error').innerHTML = "";
         document.getElementById('url').value = '';
-        var resp;
+        let resp;
         try {
+            // We're using `//` and not `https://` to keep the protocol
             resp = await fetch('//pyt.pp.ua/create', {
-                "method": "POST",
-                "body": JSON.stringify({ 'url': url, 'mode': size })
+                method: 'POST',
+                body: JSON.stringify({ url: url, mode: size })
             });
         } catch (e) {
-            document.getElementById('error').innerHTML = e
-            return false
+            document.getElementById('error').innerHTML = e;
+            return false;
         }
 
-        console.log(resp)
+        var json;
         if (!resp.ok) {
-            document.getElementById('error').innerHTML = error_map[resp.status] || `HTTP ${resp.status} ${resp.statusText}`
-            return false
+            try {
+                json = await resp.json();
+            } catch (e) {
+                document.getElementById('error').innerHTML = error_map[resp.status] || `HTTP ${resp.status} ${resp.statusText}`;
+                return false;
+            }
+            document.getElementById('error').innerHTML = json.error || error_map[resp.status] || `HTTP ${resp.status} ${resp.statusText}`;
+            return false;
         }
-        const json = await resp.json();
-        console.log(json)
+
+        json = await resp.json();
         const result = json.url;
         document.getElementById('short-url').innerHTML = result;
         document.getElementById('short-url').href = result;
         document.getElementById('result').style.display = 'block';
         return false;
     }
-</script>
-
-<h1>URL Shortener</h1>
-<center>A link shortening service crafted with care and love by me!</center>
-<br />
-<noscript>
-    <i>For this to work you need JavaScript enabled.</i>
-</noscript>
-<div id="form" style="text-align: center;display: none;">
-    <form onsubmit="try{upload(event.target);}catch{}return false">
-        <input name="url" type="url" placeholder="Paste your long URL here" id="url" required />
-        &nbsp;
-        <input type="submit" value="Shorten!" /><br />
-        <span id="error" style="color:rgb(255, 50, 50)"></span>
-        <p></p>
-        <details style="display:block;text-align: left;">
-            <summary><i>Preferences</i></summary>
-            <p></p>
-            <div style="width:95%;margin:auto">
-                <b>Link size:</b><br>
-                <input type="radio" name="size" value="short" />
-                <span
-                    title="Great for places where a temporary link would work, such as sending to a friend or another device.">&nbsp;Short
-                    (4 chars)</span>
-                <input type="radio" checked name="size" value="normal" />
-                <span title="Suitable in most cases.">&nbsp;Default (6 chars)</span>
-                <input type="radio" name="size" value="long" />
-                <span title="I don't know why you might need it, but it is there.">&nbsp;Long (10 chars)</span>
-            </div>
-        </details>
-    </form>
-    <div id="result" style="display: none;">
-        <br />
-        <p>Your short URL is:</p>
-        <a id="short-url" href="..." style="font-size: larger;">...</a>
-    </div>
-    <br />
-    <h2>API</h2>
-    <div style="text-align: left">
-        <h3><code>/create</code></h3>
-        <p>
-            Create a new link. (POST)
-            <br/>
-            <code>
-                {
-                    "url": "https://example.com/",
-                    "mode": "normal"
-                }
-            </code><br/>
-            Available modes:
-            <ul>
-                <li><code>short</code> &mdash; 4 characters.</li>
-                <li><code>normal</code> &mdash; 6 characters.</li>
-                <li><code>long</code> &mdash; 10 characters.</li>
-            </ul>
-        </p>
-        
-        <p>
-            Response:<br/>
-            <code>
-                {
-                    url: 'http://pyt.pp.ua/...'
-                }
-            </code>
-        </p>
-        
-    </div>
-</div>
-<script>
-    document.getElementById('form').style.display = 'block';
 </script>
