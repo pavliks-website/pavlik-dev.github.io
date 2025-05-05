@@ -35,6 +35,7 @@ theme: null
 plugins:
   - jekyll-feed
   - jekyll-archives
+  - jekyll-sitemap
 
 #markdown: kramdown
 #kramdown:
