@@ -1,7 +1,7 @@
 ---
 title: "Dark launcher!"
 date: 2025-05-16 16:41:00 +0300
-type: blog
+type: news
 ---
 
 Soo, 2 days ago, May 14, I started making my own launcher.

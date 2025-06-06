@@ -1,6 +1,6 @@
 ---
 layout: post
-type: blog
+type: post
 date: 2025-06-06 17:20:00 +0300
 title: Surviving on macOS 10.15 Catalina in 2025
 ---
