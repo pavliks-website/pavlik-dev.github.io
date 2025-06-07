@@ -25,7 +25,6 @@ gem "jekyll"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed"
-  gem 'jekyll-archives'
   gem 'jekyll-sitemap'
   gem "jekyll-last-modified-at"
 end
