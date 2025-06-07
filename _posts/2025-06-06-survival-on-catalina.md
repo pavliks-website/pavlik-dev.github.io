@@ -17,8 +17,7 @@ So in case you’re having the same problem as me, and you don’t want to insta
 
 Chrome, as well as Chromium, stopped supporting Catalina after version 129.{% include source.html link='https://support.google.com/chrome/thread/289795700/sunsetting-chrome-support-for-macos-10-15' %} Yes, you can still use 128, but it's already almost a year old.
 
-There is Chromium Legacy, which is a fork of Chromium that supports all macOS versions all the way back to 10.7. Although it crashed on my older MacBook with 10.7.
-
+There is Chromium Legacy, which is a fork of Chromium that supports all macOS versions all the way back to 10.7. Although it crashed on my older MacBook with 10.7. \
 But, the last release is from May 29, 2024{% include source.html link='https://github.com/blueboxd/chromium-legacy/releases/tag/1303823' %}. Which is already a year old. Plus it's rather laggy. Overall, if you don’t really need a Chromium browser (which is true in most cases), you might try out something else.
 
 Looking at something up-to-date, you might want to try out Firefox. Yeah, not the best option considering last events in Mozilla, but it works. And still supports 10.15.
@@ -27,7 +26,8 @@ You can also try LibreWolf, which is a fork of Firefox. It’s Firefox but with 
 
 If you’re feeling geeky, there’s Pale Moon, a fork of Firefox back in its Classic UI days. Oh and don’t forget Basilisk, same shit but with Australis UI. But it lags for some reason.
 
-Note that these browsers don’t support most of the modern web. Sorry about that. But if your 
+Note that last two don’t support ChatGPT or even my own LegacyGPT. Sorry about that.
+But stuff like Bluesky, Mastodon, DuckDuckGo, and OpenVK, these run just fine! Most of the web (excluding Cloudflare protected websites) still works.
 
 ## Programming
 

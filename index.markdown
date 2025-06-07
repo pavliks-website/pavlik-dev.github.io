@@ -3,18 +3,24 @@ layout: default
 title: "pavlik_tt's website!"
 ---
 
-# Hi! My name is Pavel
-*aka: pavlik_tt, pavlik_roblox, zigzag14, etc.*
+# Hello, World!
 
-I'm a retrocoding enthusiast who loves building crazy projects.\
-Since I started learning programming at 8, I've done a lot of different things. *(I didn't say useful btw)*
+This is my collection of projects I've made over time. And my blog.
 
-I'm good at Python and currently learning Golang.\
-I do know C and C++ but I'm bad at it.
+### Recent projects
 
-I did some useful things like
-  - [finfo](https://github.com/pavlik-dev/finfo/) &mdash; A simple C++ utility that displays information about files
+ * [LegacyGPT](https://legacygpt.pavliktt.pp.ua/) (June 3) – old ChatGPT UI (pollinations.ai as API)
+ * [dLaunch](https://gitlab.com/pavlik-dev/darklauncher) (May 14) – a very simple launcher
+ * [url shortener](https://url.pavliktt.pp.ua/) (April 12) – a link shortening service crafted with care and love by me
+ * ~~ChatGPT on Telegram (August 26 2023) – ChatGPT as a Telegram bot~~ (RIP June 1)
+ * *[more projects here](projects/)*
 
-And even crazy things like
-  - [minCPU](mincpu/) &mdash; A virtual CPU family, 8, 16 *and 32-bit soon* versions available.
-  - SerialGPT &mdash; ChatGPT over serial (COM) port
+### Blog posts
+
+{% for post in site.posts %}
+  {% assign date = post.date | date: "%s" | plus: 0 %}
+  {% if date < 1704067200 %}
+    {% continue %}
+  {% endif %}
+  {% include post.html post=post %}
+{% endfor %}

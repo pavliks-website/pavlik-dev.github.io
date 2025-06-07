@@ -1,6 +1,7 @@
 ---
 title: "Dark launcher!"
 date: 2025-05-16 16:41:00 +0300
+layout: default
 type: news
 ---
 

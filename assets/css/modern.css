@@ -1,0 +1,144 @@
+.ubuntu-mono-regular {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ubuntu-mono-bold {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.ubuntu-mono-regular-italic {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.ubuntu-mono-bold-italic {
+    font-family: "Ubuntu Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+}
+
+body {
+    font-family: "Ubuntu Mono", monospace;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+
+header {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header-text {
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+#header {
+    width: 100%;
+}
+
+#header td {
+    text-align: left;
+    width: 50%;
+}
+
+#header a {
+    color: white;
+    text-decoration: none;
+}
+
+a {
+    color: white;
+}
+
+.content {
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 95%;
+    max-width: 500px;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul li {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+ul li:before {
+    content: "*";
+    padding-left: 4ch;
+    padding-right: 2ch;
+}
+
+.comment {
+    font-style: italic;
+    color: #bdbdbd;
+}
+
+footer {
+    font-size: 11px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    bottom: 25px;
+}
+
+.highlight-table tr:hover {
+    background-color: #3b3b3b;
+}
+
+#menu {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: inherit;
+}
+
+#menu .menuItem {
+    font-size: 1.4em;
+}
+
+.warning {
+    border: 2px dashed rgba(100, 100, 0, 50);
+    padding: 5px;
+    background-color: rgba(127, 127, 0, 50);
+    text-align: left;
+}
+
+@media screen and (min-width: 631px) {
+    .not-menu {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .not-menu {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+}

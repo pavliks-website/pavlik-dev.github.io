@@ -1,11 +1,16 @@
-<!doctype html>
+<!-- header.php in use! -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/web1-0.css" | relative_url }}">
+    <link rel="stylesheet" href="../assets/css/modern.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     {% if page.icon == "default" %}
     <link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
     {% else %}
@@ -15,14 +20,52 @@
 </head>
 
 <body>
-    <div class="center">
-        {% include header.html %}
-        <main style="margin: 5px;" id="main-content">
-            {{ content }}
-        </main>
-        <hr/>
-        {% include footer.html %}
+    <script>
+        var open = false;
+        function toggleMenu() {
+            open = !open;
+            var menu = document.getElementById('menu');
+            menu.style.display = open ? 'flex' : 'none';
+        }
+    </script>
+    <div id="menu">
+        <p style="margin: auto; list-style-type: none; text-align: center;">
+            {% for item in site.menu %}
+            <a class="menuItem" href="{{ item.href }}">{{ item.name }}</a>
+            <br />
+            {% endfor %}
+            <br />
+            <a class="menuItem" href="javascript:toggleMenu()">Close</a>
+        </p>
     </div>
+    <header>
+        <table id="header">
+            <tbody>
+                <tr>
+                    <td>
+                        <span class="header-text"><a href="/">pavlik_tt</a></span>
+                    </td>
+                    <td align="right" style="text-align: right;">
+                        <span class="header-text not-menu">
+                            {% for item in site.menu %}
+                                <a href="{{ item.href }}">{{ item.name }}</a>
+                                {% unless forloop.last %}&nbsp;&nbsp;{% endunless %}
+                            {% endfor %}
+                        </span>
+                        <button class="menu"
+                            style="padding: 0%; cursor: pointer; font-size: 26px; background-color: rgba(0, 0, 0, 0); border: 0; color: white; margin-left: auto;"
+                            onclick="toggleMenu()">&#9776;</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </header>
+    <div class="content">
+        {{ content }}
+    </div>
+    <footer>
+        &copy; pavlik_tt, 2025. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><br />
+        Last updated: {% last_modified_at %}</footer>
 </body>
 
 </html>

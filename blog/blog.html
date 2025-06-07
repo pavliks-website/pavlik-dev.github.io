@@ -9,7 +9,7 @@ permalink: /blog/
 <div>
 {% for post in site.posts %}
     {% assign date = post.date | date: "%s" | plus: 0 %}
-    {% if date < 1704067200 or post.type != "post" %}
+    {% if date < 1704067200 %}
         {% continue %}
     {% endif %}
     {% include post.html post=post %}
