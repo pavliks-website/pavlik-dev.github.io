@@ -17,10 +17,16 @@ This is my collection of projects I've made over time. And my blog.
 
 ### Blog posts
 
+{% assign count = 0 %}
 {% for post in site.posts %}
   {% assign date = post.date | date: "%s" | plus: 0 %}
   {% if date < 1704067200 %}
     {% continue %}
   {% endif %}
+
   {% include post.html post=post %}
+  {% assign count = count | plus: 1 %}
+  {% if count == 5 %}
+    {% break %}
+  {% endif %}
 {% endfor %}
