@@ -1,11 +1,14 @@
-<!-- header.php in use! -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title }}</title>
+    {% if page.title %}
+    <title>{{ page.title }} – pavlik_tt's website!</title>
+    {% else %}
+    <title>pavlik_tt's website!</title>
+    {% endif %}
     <link rel="stylesheet" href="/assets/css/modern.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,22 +23,16 @@
 </head>
 
 <body>
-    <script>
-        var open = false;
-        function toggleMenu() {
-            open = !open;
-            var menu = document.getElementById('menu');
-            menu.style.display = open ? 'flex' : 'none';
-        }
-    </script>
     <div id="menu">
         <p style="margin: auto; list-style-type: none; text-align: center;">
-            {% for item in site.menu %}
-            <a class="menuItem" href="{{ item.href }}">{{ item.name }}</a>
-            <br />
-            {% endfor %}
-            <br />
-            <a class="menuItem" href="javascript:toggleMenu()">Close</a>
+            <div id="links">
+                {% for item in site.menu %}
+                <a class="menuItem" href="{{ item.href }}">{{ item.name }}</a>
+                <br />
+                {% endfor %}
+                <br />
+                <a class="menuItem" href="javascript:toggleMenu()">Close</a>
+            </div>
         </p>
     </div>
     <header>
@@ -52,9 +49,9 @@
                                 {% unless forloop.last %}&nbsp;&nbsp;{% endunless %}
                             {% endfor %}
                         </span>
-                        <button class="menu"
-                            style="padding: 0%; cursor: pointer; font-size: 26px; background-color: rgba(0, 0, 0, 0); border: 0; color: white; margin-left: auto;"
-                            onclick="toggleMenu()">&#9776;</button>
+                        <a class="menu"
+                            style="font-size: 26px; margin-left: auto;"
+                            href="javascript:toggleMenu()">&#9776;</a>
                     </td>
                 </tr>
             </tbody>
@@ -66,6 +63,14 @@
     <footer>
         &copy; pavlik_tt, 2025. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><br />
         Last updated: {% last_modified_at %}</footer>
+    <script>
+        var open = false;
+        var menu = document.getElementById('menu');
+        function toggleMenu() {
+            open = !open;
+            menu.style.display = open ? 'block' : 'none';
+        }
+    </script>
 </body>
 
 </html>
