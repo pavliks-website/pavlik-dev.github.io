@@ -1,6 +1,5 @@
 ---
 layout: default
-title: "pavlik_tt's website!"
 ---
 
 # Hello, World!
