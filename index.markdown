@@ -14,7 +14,7 @@ This is my collection of projects I've made over time. And my blog.
  * ~~ChatGPT on Telegram (August 26 2023) – ChatGPT as a Telegram bot~~ (RIP June 1)
  * *[more projects here](projects/)*
 
-### Blog posts
+## Blog posts
 
 {% assign count = 0 %}
 {% for post in site.posts %}

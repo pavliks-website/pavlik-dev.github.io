@@ -23,8 +23,8 @@
 </head>
 
 <body>
-    <div id="menu">
-        <p style="margin: auto; list-style-type: none; text-align: center;">
+    <nav>
+        <div id="menu">
             <div id="links">
                 {% for item in site.menu %}
                 <a class="menuItem" href="{{ item.href }}">{{ item.name }}</a>
@@ -33,36 +33,38 @@
                 <br />
                 <a class="menuItem" href="javascript:toggleMenu()">Close</a>
             </div>
-        </p>
-    </div>
-    <header>
-        <table id="header">
-            <tbody>
-                <tr>
-                    <td>
-                        <span class="header-text"><a href="/">pavlik_tt</a></span>
-                    </td>
-                    <td align="right" style="text-align: right;">
-                        <span class="header-text not-menu">
-                            {% for item in site.menu %}
-                                <a href="{{ item.href }}">{{ item.name }}</a>
-                                {% unless forloop.last %}&nbsp;&nbsp;{% endunless %}
-                            {% endfor %}
-                        </span>
-                        <a class="menu"
-                            style="font-size: 26px; margin-left: auto;"
-                            href="javascript:toggleMenu()">&#9776;</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </header>
-    <div class="content">
+        </div>
+        <header>
+            <table id="header">
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="header-text"><a href="/">pavlik_tt</a></span>
+                        </td>
+                        <td style="text-align: right;">
+                            <span class="header-text not-menu">
+                                {% for item in site.menu %}
+                                    <a href="{{ item.href }}">{{ item.name }}</a>
+                                    {% unless forloop.last %}&nbsp;&nbsp;{% endunless %}
+                                {% endfor %}
+                            </span>
+                            <a class="menu"
+                                style="font-size: 26px; margin-left: auto;"
+                                href="javascript:toggleMenu()">&#9776;</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </header>
+    </nav>
+    <main class="content">
         {{ content }}
-    </div>
+    </main>
     <footer>
         &copy; pavlik_tt, 2025. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><br />
-        Last updated: {% last_modified_at %}</footer>
+        Last updated: {% last_modified_at %}<br />
+        <a href="https://github.com/pavlik-dev/pavlik-dev.github.io">Source code</a>
+    </footer>
     <script>
         var open = false;
         var menu = document.getElementById('menu');
