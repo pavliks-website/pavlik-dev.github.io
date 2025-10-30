@@ -30,6 +30,7 @@ pre, code {
 body {
     font-family: "IBM Plex Sans", sans-serif;
     letter-spacing: 0.5px;
+    max-width: 100vw !important;
     margin: 0;
     background-color: #0E0F04;
     color: #F9FFD6;
@@ -113,7 +114,7 @@ footer a {
     padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    width: 95%;
+    width: fit-content;
     max-width: 600px;
     font-size: 18px;
     margin: auto;
