@@ -56,8 +56,8 @@ permalink: /blog/:year/:month/:day/:slug/
 menu:
   - name: "Blog"
     href: "/blog/"
-  - name: "Projects"
-    href: "/projects/"
+  - name: "Photos"
+    href: "/photos/"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
