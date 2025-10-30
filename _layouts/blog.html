@@ -6,18 +6,10 @@ layout: default
         max-width: 100%;
     }
 </style>
-<h2>{{ page.title }}</h2>
+<h1>{{ page.title }}</h1>
 <time>
     {{ page.date | date: "%Y-%m-%d %H:%M" }}
 </time>
-{% assign date = page.date | date: "%s" | plus: 0 %}
 {{ page.toc }}
-<p>
-{% if date < 1704067200 %}
-    <b>Warning: this post is more than a year old! It can (and most likely will) contain
-        misinformation, so double check the facts!
-    </b>
-{% endif %}
-</p>
 <p></p>
 {{ page.content | markdownify }}

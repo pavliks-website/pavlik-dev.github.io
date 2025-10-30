@@ -2,19 +2,34 @@
 layout: default
 ---
 
-# Hello, World!
+<h1 style="text-align:center;">Hello, World!</h1>
+I'm an ordinary guy who sometimes codes things. I also like photography too!
 
-This is my collection of projects I've made over time. And my blog.
+  * Bday: Jan 22
+  * Preferred programming languages:
+    * Golang
+    * C++
+    * Python
+    * C
+    * PHP
+    * JavaScript
+  * Especially like:
+    * Retro computing
+    * Linux
+    * Pineapple on pizza
+    * Photography
 
-### Recent projects
+---
 
- * [LegacyGPT](https://legacygpt.pavliktt.pp.ua/) (June 3) – old ChatGPT UI (pollinations.ai as API)
- * [dLaunch](https://gitlab.com/pavlik-dev/darklauncher) (May 14) – a very simple launcher
- * [url shortener](https://url.pavliktt.pp.ua/) (April 12) – a link shortening service crafted with care and love by me
- * ~~ChatGPT on Telegram (August 26 2023) – ChatGPT as a Telegram bot~~ (RIP June 1)
- * *[more projects here](projects/)*
+# 🐢 Kogame Translate
 
-## Blog posts
+<span style="font-size:18px;">The only text translator you'll ever want. And it's free!</span>
+
+<a href="https://github.com/pavlik-dev/kogame-translate" style="font-weight:500;font-size:25px;display:block">GitHub</a>
+
+---
+
+<h1 style="text-align:center;">Blog</h1>
 
 {% assign count = 0 %}
 {% for post in site.posts %}

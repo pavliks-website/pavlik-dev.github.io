@@ -1,0 +1,204 @@
+.ibm-plex-sans-regular {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.ibm-plex-sans-bold {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.ibm-plex-sans-regular-italic {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.ibm-plex-sans-bold-italic {
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+pre, code {
+    font-family: "IBM Plex Mono", monospace;
+    opacity: 65%;
+}
+
+body {
+    font-family: "IBM Plex Sans", sans-serif;
+    letter-spacing: 0.5px;
+    margin: 0;
+    background-color: #0E0F04;
+    color: #F9FFD6;
+}
+
+header {
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-text {
+    font-size: 1.5em;
+    font-weight: bolder;
+    border-radius: 22px;
+}
+
+.header-text#right-menu {
+    padding: 8px 16px;
+    width: fit-content;
+    float: right;
+    background-color: #23270D;
+    border: 2px solid #444B19;
+}
+
+.header-text#title {
+    padding: 8px 16px;
+    background-color: #23270D;
+    border: 2px solid #444B19;
+}
+
+#header {
+    width: 100%;
+}
+
+#header td {
+    text-align: left;
+    width: 50%;
+}
+
+header a {
+    text-decoration-line: none;
+    color: inherit;
+}
+
+.content a {
+    color: inherit;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1px;
+}
+
+footer a {
+    color: inherit;
+    text-decoration-style: wavy;
+    text-decoration-thickness: 0.5px;
+}
+
+.menu {
+    border-radius: 22px;
+    display: block;
+    padding: 8px 16px;
+    background-color: #23270D;
+    border: 2px solid #444B19;
+}
+
+.menu-option:hover {
+    text-decoration-style: wavy;
+    text-decoration-thickness: 1px;
+}
+
+.delimiter {
+    opacity: 25%;
+    font-weight: 100;
+    margin: 0px 5px;
+}
+
+.content {
+    margin-top: 10px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 95%;
+    max-width: 600px;
+    font-size: 18px;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+ul li {
+    padding-left: 1em;
+    text-indent: -1em;
+}
+
+ul li:before {
+    content: "*";
+    padding-left: 4ch;
+    padding-right: 2ch;
+}
+
+.comment {
+    font-style: italic;
+    color: #bdbdbd;
+}
+
+hr {
+    opacity: 25%;
+}
+
+footer {
+    font-size: 11px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+    bottom: 25px;
+}
+
+.highlight-table tr:hover {
+    background-color: #3b3b3b;
+}
+
+#menu {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: inherit;
+}
+
+#menu #links {
+    position: fixed;
+    font-size: 1.4em;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+
+.warning {
+    border: 2px dashed rgba(100, 100, 0, 50);
+    padding: 5px;
+    background-color: rgba(127, 127, 0, 50);
+    text-align: left;
+}
+
+@media screen and (min-width: 631px) {
+    .not-menu {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .not-menu {
+        display: none;
+    }
+
+    .menu {
+        display: block;
+    }
+}

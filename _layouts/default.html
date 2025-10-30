@@ -9,11 +9,11 @@
     {% else %}
     <title>pavlik_tt's website!</title>
     {% endif %}
-    <link rel="stylesheet" href="/assets/css/modern.css">
+    <link rel="stylesheet" href="/assets/css/kogame.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     {% if page.icon == "default" %}
     <link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
     {% else %}
@@ -35,26 +35,26 @@
             </div>
         </div>
         <header>
-            <table id="header">
+            <span class="header-text" id="title"><a href="/">pavlik_tt</a></span>
+            <span class="header-text not-menu" id="right-menu">
+                {% for item in site.menu %}
+                    <a class="menu-option" href="{{ item.href }}">{{ item.name }}</a>
+                    {% unless forloop.last %}<span class="delimiter">|</span>{% endunless %}
+                {% endfor %}
+            </span>
+            <a class="menu header-text"
+                href="javascript:toggleMenu()">&gt;&gt;</a>
+            <!-- <table id="header">
                 <tbody>
                     <tr>
                         <td>
-                            <span class="header-text"><a href="/">pavlik_tt</a></span>
                         </td>
                         <td style="text-align: right;">
-                            <span class="header-text not-menu">
-                                {% for item in site.menu %}
-                                    <a href="{{ item.href }}">{{ item.name }}</a>
-                                    {% unless forloop.last %}&nbsp;&nbsp;{% endunless %}
-                                {% endfor %}
-                            </span>
-                            <a class="menu"
-                                style="font-size: 26px; margin-left: auto;"
-                                href="javascript:toggleMenu()">&#9776;</a>
+                            
                         </td>
                     </tr>
                 </tbody>
-            </table>
+            </table> -->
         </header>
     </nav>
     <main class="content">
