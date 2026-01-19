@@ -1,0 +1,46 @@
+---
+layout: default
+---
+
+{% capture locator %}
+  <a href="/photos/">Photos</a> &gt; 
+  <a href="../">{{ page.album }}</a> &gt; 
+  <a href="#">{{ page.title }}</a>
+{% endcapture %}
+
+<a href="/assets/photos/{{ page.filename }}"><img style="width: 100%;" src="/assets/photos-thumb/{{ page.filename }}" /></a>
+
+<h2>{{ page.title | default: page.filename }}</h2>
+
+<p><a href="/assets/photos-thumb/{{ page.filename }}">View thumbnail</a> | <a href="/assets/photos/{{ page.filename }}">View full photo</a> (or just click the image)</p>
+
+<p>
+    In the <a href="../">{{ page.album }}</a> album.<br/>
+</p>
+<p>
+    <h3>Metadata</h3>
+    {% if page.camera %}
+    <b>Camera:</b> {{ page.camera }}<br/>
+    {% endif %}
+    {% if page.date %}
+    <b>Date:</b> {{ page.date }}<br/>
+    {% endif %}
+    {% if page.fullsize %}
+    <b>Size:</b> {{ page.thumbsize | default: "N/A" }} (thumbnail), {{ page.fullsize | default: "N/A" }} (full photo)<br/>
+    {% endif %}
+    {% if page.aperture %}
+    <b>Aperture:</b> {{ page.aperture }}<br/>
+    {% endif %}
+    {% if page.exposure %}
+    <b>Exposure:</b> {{ page.exposure }}<br/>
+    {% endif %}
+    {% if page.iso %}
+    <b>ISO:</b> {{ page.iso }}<br/>
+    {% endif %}
+    {% if page.focal %}
+    <b>Focal length:</b> {{ page.focal }}<br/>
+    {% endif %}
+    {% if page.software %}
+    <b>Processed/Modified with:</b> {{ page.software }}<br/>
+    {% endif %}
+</p>

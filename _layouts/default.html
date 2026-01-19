@@ -1,78 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% if page.title %}
-    <title>{{ page.title }} – pavlik_tt's website!</title>
-    {% else %}
-    <title>pavlik_tt's website!</title>
-    {% endif %}
-    <link rel="stylesheet" href="/assets/css/kogame.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    {% if page.icon == "default" %}
-    <link rel="icon" href="{{ "/favicon.ico" | relative_url }}">
-    {% else %}
-    <link rel="icon" href="{{ page.icon }}">
-    {% endif %}
-    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{{ "/feed.xml" | relative_url }}">
+    <title>{{ page.title }} &mdash; pavlik_tt</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/assets/css/web1-0.css">
 </head>
 
 <body>
-    <nav>
-        <div id="menu">
-            <div id="links">
-                {% for item in site.menu %}
-                <a class="menuItem" href="{{ item.href }}">{{ item.name }}</a>
-                <br />
-                {% endfor %}
-                <br />
-                <a class="menuItem" href="javascript:toggleMenu()">Close</a>
-            </div>
-        </div>
-        <header>
-            <span class="header-text" id="title"><a href="/">pavlik_tt</a></span>
-            <span class="header-text not-menu" id="right-menu">
-                {% for item in site.menu %}
-                    <a class="menu-option" href="{{ item.href }}">{{ item.name }}</a>
-                    {% unless forloop.last %}<span class="delimiter">|</span>{% endunless %}
-                {% endfor %}
-            </span>
-            <a class="menu header-text"
-                href="javascript:toggleMenu()">&gt;&gt;</a>
-            <!-- <table id="header">
-                <tbody>
-                    <tr>
-                        <td>
-                        </td>
-                        <td style="text-align: right;">
-                            
-                        </td>
-                    </tr>
-                </tbody>
-            </table> -->
-        </header>
-    </nav>
-    <main class="content">
-        {{ content }}
-    </main>
+    <header>
+        <h2>
+            <a href="/"><img src="/assets/img/header.gif" width="48" />&ensp;<span class="ubuntu-title">pavlik_tt</span></a>
+        </h2>
+        <p id="locator">
+            {% if page.layout == 'photo' %}
+                <a href="/photos/">Photos</a> &gt; 
+                <a href="../">{{ page.album }}</a> &gt; 
+                {{ page.title }}
+            {% elsif page.layout == 'album' %}
+                <a href="/photos/">Photos</a> &gt; 
+                {{ page.title }}
+            {% elsif page.layout == 'blog' %}
+                <a href="/blog/">Blog</a> &gt;
+                {{ page.title }}
+            {% else %}
+                {{ page.title }}
+            {% endif %}
+        </p>
+    </header>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <nav>
+                        <p><a href="/">home</a></p>
+                        {% for item in site.menu %}
+                        <p class="tooltip"><a href="{{ item.href }}">{{ item.name }}</a><span class="tooltiptext">{{ item.tooltip }}</span></p>
+                        {% endfor %}
+                    </nav>
+                </td>
+                <td>
+                    <main>
+                        {{ content }}
+                    </main>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <footer>
-        &copy; pavlik_tt, 2025. <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a><br />
-        Last updated: {% last_modified_at %}<br />
-        <a href="https://github.com/pavlik-dev/pavlik-dev.github.io">Source code</a>
+        <br><br>
+        &copy; 2026, pavlik_tt
+        <br><br>
     </footer>
-    <script>
-        var open = false;
-        var menu = document.getElementById('menu');
-        function toggleMenu() {
-            open = !open;
-            menu.style.display = open ? 'block' : 'none';
-        }
-    </script>
 </body>
 
 </html>

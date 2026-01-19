@@ -1,79 +1,153 @@
-/* Basic CSS reset for compatibility */
-body, h1, a, header, .content, .center, .page-holder, .navbar {
+:root {
+    background-image: url(/assets/img/stars.png);
     margin: 0;
     padding: 0;
+    line-height: 1.5;
+}
+
+@font-face {
+    font-family: "Ubuntu Title";
+    src: url(/assets/fonts/Ubuntu-Title.ttf);
+}
+
+.ubuntu-title {
+    font-family: "Ubuntu Title";
+}
+
+header .ubuntu-title {
+    font-weight: normal;
+    letter-spacing: 0.75px;
+    font-size: larger;
 }
 
 body {
     background-color: black;
-    color: white;
-    max-width: 525px;
+    color: #f9f3ff;
+    font-family: "Droid Sans", sans-serif;
+    max-width: 675px;
     margin: auto;
-    width: 100% !important;
+    padding: 10px;
+    padding-top: 25px;
+    min-height: 100vh;
+    box-shadow: 0px 0px 1000px black;
+}
+
+h2 {
+    margin: 0;
+}
+
+#locator {
+    font-family: monospace;
+    opacity: 0.7;
+}
+
+.album-contents {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 33% 33% 33%;
+
+    div.album-item {
+        display: block;
+        max-width: 100%;
+        padding: 5px;
+        a img {
+            display: block;
+            max-width: 100%;
+        }
+    }
     
-    /* Make UI elements dark on newer browsers */
-    color-scheme: dark;
 }
 
-.content {
-    text-align: left;
-}
-
-.center {
-    text-align: center;
-    margin: auto;
+table.album-table {
     width: 100%;
+
+    td {
+        text-align: left;
+        vertical-align: middle;
+        padding: 5px;
+    }
 }
 
-main {
-    text-align: left;
+::selection {
+  background-color: #995bdb; /* The highlight color */
+  color: #ffffff; /* The text color */
 }
 
-a {
-    color:white;
+.tooltip {
+  position: relative;
+  cursor: pointer;
+  line-height: 0.75;
 }
 
-.page-holder {
-    border-collapse: collapse;
-    padding: 5px;
+header h2 img {
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.page-holder .title {
-    text-align: center;
+.tooltiptext {
+  visibility: hidden; /* Hidden by default */
+  min-width: 100px;
+  max-width: 200px;
+  background-color: rgb(102, 79, 128);
+  color: #ffffff;
+  text-align: center;
+  padding: 5px 8px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1; /* Ensure tooltip is displayed above content */
+  line-height: 1;
+
+  top: -10px;
+  right: 120%;
 }
 
-.page-holder td {
-    vertical-align: top;
-    padding: 5px;
+.tooltip:hover {
+    background-color: rgba(102, 79, 128, 0.65);
+}
+
+/* Show the tooltip text on hover */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%; /* To the right of the tooltip */
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #664f80;
 }
 
 header {
-    margin-top: 7px;
-    width: 100%;
-}
-
-header nav {
-    width: 100%;
-    text-align: left;
-}
-
-.navbar {
-    width: 100%;
-    font-family: monospace;
-    font-weight: bold;
-}
-
-.navbar a {
-    display: inline;
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-}
-
-.navbar a:hover {
-    background-color: darkblue;
-}
-
-h1 {
     text-align: center;
+    width: 100%;
+}
+
+header nav table {
+    width: 100%;
+}
+
+table nav {
+    text-align: right;
+}
+
+table td {
+    vertical-align: top;
+    padding: 0 15px;
+}
+
+footer {
+    text-align: center;
+    font-size: small;
+    color: rgb(255, 255, 255);
+    opacity: .4;
+    font-family: monospace;
+}
+
+a {
+    color: #f0e2ff;
+    text-decoration: underline wavy;
 }

@@ -1,55 +1,29 @@
 ---
 layout: default
 permalink: "/photos/"
-title: "Photos"
+title: "photos"
+
+albums:
+  - name: Outside
+    thumb: "DSC06151.JPG"
+    short: "outside"
 ---
 
-<h1 style="text-align: center">Photos</h1>
+<h1>Photos</h1>
 
 <p style="text-align: center; opacity: 50%">
     <i>Click on photos to view in full resolution</i>
 </p>
 
 <div style="text-align: center">
-    <div>
-        <div>
-            <a href="/assets/photos/best-friends.jpg"
-                ><img
-                    style="max-width: 100%"
-                    src="/assets/photos-thumb/best-friends.jpg"
-                    alt="Two stray cats, black on the left, gray on the right, curled up between two power poles on the asphalt strewn with dried autumn leaves and small islands of grass." /></a
-            ><br />
-            <i
-                >Best friends<br />
-                Samsung Galaxy Note 9 @ 2025-11-17 16:04<br />Modified in
-                <a href="https://photopea.com/">Photopea</a></i
-            >
-        </div>
-        <br />
-        <div>
-            <a href="/assets/photos/DSC06151.JPG"
-                ><img
-                    style="max-width: 100%"
-                    src="/assets/photos-thumb/DSC06151.JPG"
-                    alt="A quiet, dimly lit street at night" /></a
-            ><br />
-            <i
-                >A quiet, dimly lit street at night<br />
-                Sony DSC-T9 @ 2025-10-14 20:29</i
-            >
-        </div>
-        <br />
-        <div>
-            <a href="/assets/photos/DSC06137.JPG"
-                ><img
-                    style="max-width: 100%"
-                    src="/assets/photos-thumb/DSC06137.JPG"
-                    alt="A quiet street scene during autumn from above" /></a
-            ><br />
-            <i
-                >A quiet street scene during autumn from above<br />
-                Sony DSC-T9 @ 2025-10-11 18:25</i
-            >
-        </div>
-    </div>
+    <table class="album-table">
+        <tbody>
+            {% for album in page.albums %}
+            <tr>
+                <td><a href="/photos/{{ album.short }}/"><img src="/assets/photos-thumb/{{ album.thumb }}" width="128" /></a></td>
+                <td style="text-align: left; vertical-align: middle;"><a href="/photos/{{ album.short }}/"><b>{{ album.name }}</b></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>

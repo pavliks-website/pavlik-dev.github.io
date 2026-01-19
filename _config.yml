@@ -54,10 +54,23 @@ repository: pavlik-dev.github.io
 permalink: /blog/:year/:month/:day/:slug/
 
 menu:
-  - name: "Blog"
+  - name: "downloads"
+    href: "/dl/"
+    tooltip: "lots of fun stuff, for free"
+  - name: "blog"
     href: "/blog/"
-  - name: "Photos"
+    tooltip: "something about my life"
+  - name: "photos"
     href: "/photos/"
+    tooltip: "my photo collection"
+
+# collections:
+#   photos:
+#     output: true
+#     permalink: /photos/:album/:short/
+#   albums:
+#     output: true
+#     permalink: /photos/:slug/
 
 # Exclude from processing.
 # The following items will not be processed, by default.
