@@ -9,4 +9,6 @@ photos:
       name: A lovely evening for a lovely walk.
     - file: best-friends.jpg
       name: Best friends
+    - file: DSC06342.JPG
+      name: A lamppost next to my favorite pizzeria
 ---
