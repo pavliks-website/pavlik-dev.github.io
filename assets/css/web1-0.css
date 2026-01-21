@@ -73,6 +73,17 @@ table.album-table {
     }
 }
 
+div.metadata-grid {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: 49% 49%;
+
+    div {
+        padding: 5px 10px 10px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+}
+
 ::selection {
     background-color: #995bdb; /* The highlight color */
     color: #ffffff; /* The text color */

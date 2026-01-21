@@ -3,8 +3,8 @@ layout: default
 ---
 
 {% capture locator %}
-  <a href="/photos/">Photos</a> &gt; 
-  <a href="../">{{ page.album }}</a> &gt; 
+  <a href="/photos/">Photos</a> &gt;
+  <a href="../">{{ page.album }}</a> &gt;
   <a href="#">{{ page.title }}</a>
 {% endcapture %}
 
@@ -19,28 +19,38 @@ layout: default
 </p>
 <p>
     <h3>Metadata</h3>
-    {% if page.camera %}
-    <b>Camera:</b> {{ page.camera }}<br/>
-    {% endif %}
-    {% if page.date %}
-    <b>Date:</b> {{ page.date }}<br/>
-    {% endif %}
-    {% if page.fullsize %}
-    <b>Size:</b> {{ page.thumbsize | default: "N/A" }} (thumbnail), {{ page.fullsize | default: "N/A" }} (full photo)<br/>
-    {% endif %}
-    {% if page.aperture %}
-    <b>Aperture:</b> {{ page.aperture }}<br/>
-    {% endif %}
-    {% if page.exposure %}
-    <b>Exposure:</b> {{ page.exposure }}<br/>
-    {% endif %}
-    {% if page.iso %}
-    <b>ISO:</b> {{ page.iso }}<br/>
-    {% endif %}
-    {% if page.focal %}
-    <b>Focal length:</b> {{ page.focal }}<br/>
-    {% endif %}
-    {% if page.software %}
-    <b>Processed/Modified with:</b> {{ page.software }}<br/>
-    {% endif %}
+    <div class="metadata-grid">
+        {% if page.camera %}
+        {% include metadata_row.html icon="camera" name="Camera" value=page.camera %}
+        {% endif %}
+        {% if page.date %}
+        {% include metadata_row.html icon="calendar" name="Date" value=page.date %}
+        {% endif %}
+        {% if page.fullsize %}
+        {% capture size_value %}
+        {{ page.thumbsize | default: "N/A" }} (thumbnail), {{ page.fullsize | default: "N/A" }} (full photo)
+        {% endcapture %}
+
+        {% include metadata_row.html
+            icon="arrow_inout"
+            name="Size"
+            value=size_value
+        %}
+        {% endif %}
+        {% if page.aperture %}
+        {% include metadata_row.html icon="eye" name="Aperture" value=page.aperture %}
+        {% endif %}
+        {% if page.exposure %}
+        {% include metadata_row.html icon="clock" name="Exposure" value=page.exposure %}
+        {% endif %}
+        {% if page.iso %}
+        {% include metadata_row.html icon="lightning" name="ISO" value=page.iso %}
+        {% endif %}
+        {% if page.focal %}
+        {% include metadata_row.html icon="magnifier" name="Focal length" value=page.focal %}
+        {% endif %}
+        {% if page.software %}
+        {% include metadata_row.html icon="pencil" name="Processed/modified with" value=page.software %}
+        {% endif %}
+    </div>
 </p>
