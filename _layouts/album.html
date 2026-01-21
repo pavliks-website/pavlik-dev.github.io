@@ -5,6 +5,11 @@ layout: default
 <h2>{{ page.title }}</h2>
 <div class="album-contents">
     {% for photo in page.photos %}
-    <div class="album-item"><a href="{{ page.permalink }}{{ photo }}"><img src="/assets/photos-thumb/{{ photo }}" /></a></div>
+    <div class="album-item">
+        <a href="{{ page.permalink }}{{ photo.file }}">
+            <img src="/assets/photos-thumb/{{ photo.file }}" /><br/>
+            <span class="photo-name">{{ photo.name }}</span>
+        </a>
+    </div>
     {% endfor %}
 </div>

@@ -50,12 +50,17 @@ h2 {
         display: block;
         max-width: 100%;
         padding: 5px;
-        a img {
-            display: block;
-            max-width: 100%;
+
+        a {
+            img {
+                width: 100%;
+            }
+
+            text-align: center;
+            text-decoration: none;
+            font-size: small;
         }
     }
-    
 }
 
 table.album-table {
@@ -69,14 +74,14 @@ table.album-table {
 }
 
 ::selection {
-  background-color: #995bdb; /* The highlight color */
-  color: #ffffff; /* The text color */
+    background-color: #995bdb; /* The highlight color */
+    color: #ffffff; /* The text color */
 }
 
 .tooltip {
-  position: relative;
-  cursor: pointer;
-  line-height: 0.75;
+    position: relative;
+    cursor: pointer;
+    line-height: 0.75;
 }
 
 header h2 img {
@@ -85,20 +90,20 @@ header h2 img {
 }
 
 .tooltiptext {
-  visibility: hidden; /* Hidden by default */
-  min-width: 100px;
-  max-width: 200px;
-  background-color: rgb(102, 79, 128);
-  color: #ffffff;
-  text-align: center;
-  padding: 5px 8px;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1; /* Ensure tooltip is displayed above content */
-  line-height: 1;
+    visibility: hidden; /* Hidden by default */
+    min-width: 100px;
+    max-width: 200px;
+    background-color: rgb(102, 79, 128);
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1; /* Ensure tooltip is displayed above content */
+    line-height: 1;
 
-  top: -10px;
-  right: 120%;
+    top: -10px;
+    right: 120%;
 }
 
 .tooltip:hover {
@@ -107,18 +112,18 @@ header h2 img {
 
 /* Show the tooltip text on hover */
 .tooltip:hover .tooltiptext {
-  visibility: visible;
+    visibility: visible;
 }
 
 .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 100%; /* To the right of the tooltip */
-  margin-top: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: transparent transparent transparent #664f80;
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%; /* To the right of the tooltip */
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #664f80;
 }
 
 header {
@@ -143,7 +148,7 @@ footer {
     text-align: center;
     font-size: small;
     color: rgb(255, 255, 255);
-    opacity: .4;
+    opacity: 0.4;
     font-family: monospace;
 }
 
